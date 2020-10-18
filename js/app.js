@@ -1,7 +1,13 @@
+var url = window.location.href;
+var SWLocation = '/Twittor/sw.js';
 
 if(navigator.serviceWorker){
 
-    navigator.serviceWorker.register('/sw.js');
+    if(url.includes('localhost')){
+        SWLocation = '/sw.js';
+    }
+
+    navigator.serviceWorker.register(SWLocation);
 
 }
 
